@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/sdfsdfs
 export default defineConfig({
-  base: "/nana/",
+  // base: "/nana/",
   plugins: [react({})],
   resolve: {
     alias: {
