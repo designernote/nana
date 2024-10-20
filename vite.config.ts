@@ -2,9 +2,9 @@ import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
-// https://vitejs.dev/config/dfdfdf
+// https://vitejs.dev/config/
 export default defineConfig({
-  // base: "/nana/",
+  base: "/nana/",
   plugins: [react({})],
   resolve: {
     alias: {
