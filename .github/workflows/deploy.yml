@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 배포할 브랜치 (예: main 또는 master)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # 작업을 실행할 환경
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # 코드 체크아웃
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2 # Node.js 환경 설정
+        with:
+          node-version: "16" # 필요한 Node.js 버전 (필요에 따라 조정 가능)
+
+      - name: Install dependencies
+        run: npm install # npm 패키지 설치
+
+      - name: Build
+        run: npm run build # React 애플리케이션 빌드
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3 # GitHub Pages에 배포
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub Actions에서 제공하는 토큰
+          publish_dir: ./build # 배포할 디렉토리 (React의 빌드 폴더)
